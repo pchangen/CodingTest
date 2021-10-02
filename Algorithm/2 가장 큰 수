@@ -1,0 +1,11 @@
+https://programmers.co.kr/learn/courses/30/lessons/42746
+JavaScript
+
+
+function solution(numbers) {
+    var answer = '';
+    let strNumber = numbers.map(num => num + "");
+    answer = strNumber.sort((a, b) => (b + a) - (a + b)).join("");
+    if(answer[0] === "0")  return "0";
+    else    return answer;
+}
