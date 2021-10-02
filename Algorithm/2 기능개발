@@ -1,0 +1,33 @@
+https://programmers.co.kr/learn/courses/30/lessons/42586
+JavaScript
+
+function solution(progresses, speeds) {
+    var answer = [];
+    let checksum = [];
+    
+    for(let checkIndex in progresses){
+        checksum.push(checkIndex);
+    }
+    
+    while(1){
+        let count =0;
+        for(let i = checksum[0]; i<progresses.length; i++){
+            if(progresses[i] >= 100){
+                count++;
+                checksum.shift();
+            }else{
+                if(count !=0) answer.push(count);
+                break;
+            }
+        }
+        for(let index in progresses){
+            progresses[index] = progresses[index] + speeds[index];
+        }
+        if(checksum.length <= 0){
+            if(count !=0) answer.push(count); 
+            break;
+        }   
+    }
+    
+    return answer;
+}
