@@ -1,0 +1,24 @@
+https://programmers.co.kr/learn/courses/30/lessons/43165
+JavaScript
+
+
+function solution(numbers, target) {
+    var answer = 0;
+
+    function dfsSearch(index, value){
+        if(index === numbers.length){
+            if(value === target){
+                answer++;
+            }
+            return;
+        }
+        dfsSearch(index+1, value+numbers[index]);
+        dfsSearch(index+1, value-numbers[index]);
+    }
+   
+    dfsSearch(0,0);
+    
+    return answer;
+}
+
+
