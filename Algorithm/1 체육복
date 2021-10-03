@@ -1,0 +1,23 @@
+https://programmers.co.kr/learn/courses/30/lessons/42862#
+JavaScript
+
+function solution(n, lost, reserve) {
+    var answer = n;
+    let nLost = lost.filter(x => !reserve.includes(x));
+    let nReserve = reserve.filter(x => !lost.includes(x));
+    
+    nLost.sort((a,b) => a-b);
+    nReserve.sort((a,b) => a-b);
+    answer = answer - nLost.length;
+    
+    for(let i=0; i<nLost.length; i++){
+        for(let size of nReserve){
+            if(Math.abs(nLost[i] - size) <= 1){
+                answer++;
+                nReserve.shift();
+                break;
+            }
+        }
+    }
+    return answer;
+}
