@@ -1,0 +1,26 @@
+Codility_ BinaryGap 
+Python
+
+
+
+def solution(N):
+    # write your code in Python 3.6
+    if(N & (N-1) == 0 or N & (N+1) == 0): 
+        return 0
+    binary = format(N,'b')
+    count = 0
+    countList = []
+    for i in binary:
+        if(i=='0'):
+            count +=1
+        elif(i=='1' and count !=0):
+            countList.append(count)
+            count = 0
+    if(count !=0):
+        if(binary[-1] == 1):
+            countList.append(count)
+        elif(binary[-1] == 0 and len(countList) == 0):
+            return 0
+    countList.sort(reverse=True)
+    return countList[0]
+    pass
