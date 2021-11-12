@@ -1,0 +1,38 @@
+https://programmers.co.kr/learn/courses/30/lessons/42579
+Javascript
+//Map을 통해 장르별 수를 계산하고, new Map([...palysMap.entries()].sort((a,b)=> b[1] - a[1]); 로 Value 정렬
+// key 정렬은 그냥 new Map([...playsMap.entries()].sort()]);
+
+
+function solution(genres, plays) {
+    var answer = [];
+    let playsMap = new Map();
+    let arrLength = genres.length;
+    for(let i=0; i<arrLength; i++){
+        let value = playsMap.get(genres[i]);
+        if(value){
+            playsMap.set(genres[i],value+plays[i]);
+        }else{
+            playsMap.set(genres[i],plays[i]);
+        }
+    }
+    let sortPlays = new Map([...playsMap.entries()].sort((a,b)=>b[1] - a[1]));
+    
+    for(let [key,value] of sortPlays){
+        let tempAnswer = new Map();
+        for(let i=0; i<arrLength; i++){
+            if(genres[i] == key){
+                tempAnswer.set(i,plays[i]);
+            }
+        }
+        let sortTempAnswer = new Map([...tempAnswer.entries()].sort((a,b)=>b[1] - a[1]));
+        let count = 2;      
+        for(let [key,value] of sortTempAnswer){
+            if(count <= 0) break;
+            answer.push(key);
+            count --;
+        }
+    }
+    
+    return answer;
+}
