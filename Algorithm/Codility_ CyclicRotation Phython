@@ -1,0 +1,18 @@
+CyclicRotation
+Python
+
+def solution(A, K):
+    # write your code in Python 3.6
+    answer = []
+    length = len(A)
+    if(length <= 1):
+        return A
+
+    i=0
+    index = (length-K) % length
+    while(i<length):
+        i = i+1
+        answer.append(A[index])
+        index = (index + 1) % length
+        
+    return answer
