@@ -1,0 +1,26 @@
+https://programmers.co.kr/learn/courses/30/lessons/42578
+Javascript
+//Map 객체 크기는 checkList.size 이렇게, 순회는 for of로 간편, set으로 덮어쓰면 덮어써진다. 
+
+
+function solution(clothes) {
+    var answer = 1;
+    let checkList = new Map();
+    
+    for(let temp of clothes){
+        let value = checkList.get(temp[1]);
+        if(value){
+            checkList.set(temp[1],value+1);
+        }else{
+            checkList.set(temp[1], 1);
+        }
+    }
+    for(let [key, value] of checkList){
+        answer = answer * (value+1);
+    }
+    
+
+    return answer-1;
+}
+
+
