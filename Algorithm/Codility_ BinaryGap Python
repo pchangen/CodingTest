@@ -19,7 +19,7 @@ def solution(N):
     if(count !=0):
         if(binary[-1] == 1):
             countList.append(count)
-        elif(binary[-1] == 0 and len(countList) == 0):
+        elif(binary[-1] == '0' and len(countList) == 0):
             return 0
     countList.sort(reverse=True)
     return countList[0]
