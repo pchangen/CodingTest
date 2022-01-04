@@ -1,0 +1,59 @@
+https://programmers.co.kr/learn/courses/30/lessons/81301?language=python3
+Python3
+
+def solution(s):
+    answer = 0
+    sAnswer = ""
+    index = 0
+    length = len(s)
+    while index < length :
+        if s[index] == 't':
+            if s[index+1] == 'w':
+                sAnswer = sAnswer + '2'
+                index = index + 3
+            else :
+                sAnswer = sAnswer + '3'
+                index = index + 5
+        elif s[index] == 'f':
+            if s[index+1] == 'o':
+                sAnswer = sAnswer + '4'
+                index = index + 4
+            else :
+                sAnswer = sAnswer + '5'
+                index = index + 4
+        elif s[index] == 's':
+            if s[index+1] == 'i':
+                sAnswer = sAnswer + '6'
+                index = index + 3
+            else :
+                sAnswer = sAnswer + '7'
+                index = index + 5
+        elif s[index] == 'z':
+            sAnswer = sAnswer + '0'
+            index = index + 4
+        elif s[index] == 'o':
+            sAnswer = sAnswer + '1'
+            index = index + 3
+        elif s[index] == 'e':
+            sAnswer = sAnswer + '8'
+            index = index + 5
+        elif s[index] == 'n':
+            sAnswer = sAnswer + '9'
+            index = index + 4
+        else :
+            sAnswer = sAnswer + s[index]
+            index = index + 1
+            
+    answer = int(sAnswer)
+    return answer
+
+
+
+
+# z -> 0
+# O -> 1
+# t -> 2,3
+# f -> 4,5
+# s -> 6,7
+# e -> 8
+# n -> 9 
