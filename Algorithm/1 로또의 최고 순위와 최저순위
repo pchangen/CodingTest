@@ -1,0 +1,31 @@
+https://programmers.co.kr/learn/courses/30/lessons/77484?language=python3
+Python3
+
+def solution(lottos, win_nums):
+    answer = []
+    winCount = 0
+    zCount = lottos.count(0)
+    for num in win_nums:
+        if lottos.count(num):
+            winCount = winCount+1
+            
+    answer.append(winner(winCount+zCount))
+    answer.append(winner(winCount))
+                
+        
+    print(winCount)
+    return answer
+
+def winner(wCount):
+    if wCount == 6:
+        return 1
+    elif wCount == 5:
+        return 2 
+    elif wCount == 4:
+        return 3
+    elif wCount == 3:
+        return 4
+    elif wCount == 2:
+        return 5
+    else :
+        return 6
