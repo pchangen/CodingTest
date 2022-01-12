@@ -1,0 +1,8 @@
+https://programmers.co.kr/learn/courses/30/lessons/59412
+
+-- 코드를 입력하세요
+SELECT hour(DATETIME) HOUR, count(*) "COUNT"
+FROM ANIMAL_OUTS
+WHERE hour(DATETIME) >= 9 and hour(DATETIME) < 20
+GROUP BY hour(DATETIME)
+ORDER BY hour(DATETIME)
